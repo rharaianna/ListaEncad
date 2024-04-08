@@ -114,6 +114,63 @@ void ListaEncad::insereFinal(int val){
 
 
 //Remove
-void removeInicio();
-void removeK(int k);
-void removeFinal();
+void ListaEncad::removeInicio(){
+    if(primeiro!= NULL){
+        No *p = primeiro;
+        primeiro= p->getProx();
+        delete p;
+    }
+    else{
+        cout<<"Lista vazia"<<endl;
+    }
+}
+void ListaEncad::removeK(int k){
+    if(k<0){
+        cout<<"Posição inválida"<<endl;
+    }
+    else if(k==0 && primeiro!=NULL){
+        removeInicio();
+    }
+    else{
+        int i = 0;
+        No*ant= primeiro;
+        for(;ant != NULL; ant = ant->getProx(),i++){
+            if(i==k-1)
+                break;
+        }
+        if(ant == NULL){
+            cout<<"Posição inválida"<<endl;
+        }
+        else{
+            No *deletar = ant->getProx();
+            if(deletar==NULL){
+                cout<<"Posição inválida"<<endl;
+            }
+            else{
+                ant->setProx(deletar->getProx());
+                delete deletar;
+            }
+            
+        }
+    }
+}
+void ListaEncad::removeFinal(){
+    if(primeiro!=NULL)
+    {
+        if(primeiro->getProx()==NULL){
+            removeInicio();
+        }
+        else{
+            No *penultimo= primeiro;
+            for(;penultimo->getProx()->getProx()!=NULL;penultimo=penultimo->getProx())
+            {}
+            No*ultimo=penultimo->getProx();
+            delete ultimo;
+            penultimo->setProx(NULL);
+        }
+    }
+    else{
+        cout<<"Lista vazia"<<endl;
+    }
+        
+}
