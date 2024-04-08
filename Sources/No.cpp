@@ -1,5 +1,7 @@
 #include "../Headers/No.h"
 
+No::No() { }
+
 No::No(int val, No *p)
 {
     info = val;

@@ -6,6 +6,7 @@
 class No
 {
 public:
+    No();
     No(int val, No *p); //ta confuso pra mim No*p
     ~No();
 
