@@ -10,7 +10,12 @@ ListaEncad::ListaEncad()
 
 ListaEncad::~ListaEncad()
 {
-    
+    for(No*p=primeiro; p!=NULL; ){
+        No*t=p->getProx();
+        delete p;
+        p=t;
+    }
+    // pq nn primeiro= NULL??
 }
 
 int ListaEncad::get(int k){
@@ -46,5 +51,9 @@ void ListaEncad::set(int k, int val){
 }
 
 void ListaEncad::imprime(){
-    
+    cout<<"Lista: ";
+    for(No*p = primeiro; p!=NULL; p->getProx()){
+        cout<<p->getInfo()<<" ";
+    }
+    cout<<endl;
 }
