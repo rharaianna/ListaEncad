@@ -174,3 +174,21 @@ void ListaEncad::removeFinal(){
     }
         
 }
+
+
+//Outros
+bool ListaEncad::busca(int val){
+    for(No*p = primeiro; p!= NULL; p = p->getProx()){
+        if (p->getInfo()==val){
+            return true;
+        }
+    }
+    return false;
+}
+int ListaEncad::numNos(){
+    int i = 0;
+    for(No*p=primeiro; p!=NULL;p=p->getProx()){
+        i++;
+    }
+    return i;
+}

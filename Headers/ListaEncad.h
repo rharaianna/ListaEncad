@@ -26,6 +26,10 @@ public:
     void removeK(int k);
     void removeFinal();
 
+    //Outros
+    bool busca(int val);
+    int numNos();
+
 private:
     No *primeiro;
 };
